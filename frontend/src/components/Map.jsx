@@ -52,7 +52,7 @@ const Map = () => {
         try {
             setLoading(true);
             const response = await fetch(
-                `http://localhost:5000/api/geocode?location=${location}`
+                `https://map-api-beta.vercel.app/api/geocode?location=${location}`
             );
             if (!response.ok) throw new Error("Failed to fetch");
             const data = await response.json();
