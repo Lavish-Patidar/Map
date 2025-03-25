@@ -6,7 +6,14 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const app = express();
-app.use(cors()); // Allow requests from frontend
+
+const corsOptions = {
+    origin: "https://map-frontend-five.vercel.app",
+    methods: "GET,POST,PUT,DELETE",
+    credentials: true,
+};
+
+app.use(cors(corsOptions));
 
 app.get("/api/geocode", async (req, res) => {
     const location = req.query.location;
